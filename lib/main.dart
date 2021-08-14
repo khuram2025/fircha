@@ -1,3 +1,5 @@
+import 'package:fircha/pages/SignInPage.dart';
+import 'package:fircha/pages/SignUpPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
@@ -29,16 +31,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("FireBase"),
-        ),
-        body:Center(
-          child: ElevatedButton(
-            onPressed: (){signup();}, child: Text("SignUp"),
-          ),
-        ),
-      ),
+      home: SignInPage()
     );
   }
 }
