@@ -1,5 +1,7 @@
 import 'package:fircha/pages/SignInPage.dart';
 import 'package:fircha/pages/SignUpPage.dart';
+import 'package:fircha/pages/home.dart';
+import 'package:fircha/services/Auth_Service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
@@ -13,25 +15,35 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
+
+
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
+  Widget currentPage = SignUpPage();
+  AuthClass authClass = AuthClass();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  void checkLogin() async
 
-  void signup() async {
-    try {
-      await firebaseAuth.createUserWithEmailAndPassword(email: 'devstack1@gmail.com', password: "123456");
-
-    } catch (e){
-      print(e);
-    }
+  {
+  String token = await authClass.getToken();
+  if(token!=null){
+    setState(() {
+      currentPage = HomePage();
+    });
+  }
   }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: SignUpPage()
+        home: currentPage,
     );
   }
 }
