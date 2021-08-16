@@ -1,3 +1,4 @@
+import 'package:fircha/pages/PhoneAuthPage.dart';
 import 'package:fircha/pages/SignInPage.dart';
 import 'package:fircha/pages/home.dart';
 import 'package:fircha/services/Auth_Service.dart';
@@ -42,7 +43,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 await authClass.googleSignIn(context);
               }),
               SizedBox(height: 15,),
-              buttonItem('assets/phone.svg',"Continue with Mobile",30,(){}),
+              buttonItem('assets/phone.svg',"Continue with Mobile1",30,(){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PhoneAuthPage()));
+              }),
               SizedBox(height: 15,),
               Text("Or",
                 style: TextStyle(

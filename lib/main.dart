@@ -1,3 +1,4 @@
+import 'package:fircha/pages/PhoneAuthPage.dart';
 import 'package:fircha/pages/SignInPage.dart';
 import 'package:fircha/pages/SignUpPage.dart';
 import 'package:fircha/pages/home.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Widget currentPage = SignUpPage();
+  Widget currentPage = PhoneAuthPage();
   AuthClass authClass = AuthClass();
   @override
   void initState() {
